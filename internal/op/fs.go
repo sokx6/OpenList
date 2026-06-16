@@ -2,6 +2,7 @@ package op
 
 import (
 	"context"
+	"io"
 	stdpath "path"
 	"strconv"
 	"strings"
@@ -11,6 +12,7 @@ import (
 	"github.com/OpenListTeam/OpenList/v4/internal/driver"
 	"github.com/OpenListTeam/OpenList/v4/internal/errs"
 	"github.com/OpenListTeam/OpenList/v4/internal/model"
+	"github.com/OpenListTeam/OpenList/v4/internal/net"
 	"github.com/OpenListTeam/OpenList/v4/internal/stream"
 	"github.com/OpenListTeam/OpenList/v4/pkg/singleflight"
 	"github.com/OpenListTeam/OpenList/v4/pkg/utils"
@@ -663,6 +665,15 @@ func Put(ctx context.Context, storage driver.Driver, dstDirPath string, file mod
 	if file.GetSize() < 0 {
 		log.Warnf("file size < 0, try to get full size from cache")
 		file.CacheFullAndWriter(nil, nil)
+	}
+
+	if fs, ok := file.(*stream.FileStream); ok {
+		if rc, ok := fs.Reader.(io.ReadCloser); ok {
+			if reader := net.NewReadAheadUploadReader(ctx, rc, net.LoadReadAheadConfig()); reader != nil {
+				fs.Reader = reader
+				fs.Add(reader)
+			}
+		}
 	}
 
 	var newObj model.Obj

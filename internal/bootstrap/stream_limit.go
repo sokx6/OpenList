@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/OpenListTeam/OpenList/v4/internal/conf"
+	"github.com/OpenListTeam/OpenList/v4/internal/net"
 	"github.com/OpenListTeam/OpenList/v4/internal/op"
 	"github.com/OpenListTeam/OpenList/v4/internal/setting"
 	"github.com/OpenListTeam/OpenList/v4/internal/stream"
@@ -51,4 +52,16 @@ func InitStreamLimit() {
 	initLimiter(&stream.ClientUploadLimit, conf.StreamMaxClientUploadSpeed)
 	initLimiter(&stream.ServerDownloadLimit, conf.StreamMaxServerDownloadSpeed)
 	initLimiter(&stream.ServerUploadLimit, conf.StreamMaxServerUploadSpeed)
+}
+
+func InitReadAheadConfig() {
+	net.ReadAheadProxyEnabled = setting.GetBool(conf.ReadAheadEnabled)
+	net.ReadAheadProxyBufferMB = setting.GetInt(conf.ReadAheadBufferSize, 64)
+	net.ReadAheadProxySpeedRatio = float64(setting.GetInt(conf.ReadAheadSpeedRatio, 50)) / 100.0
+
+	op.RegisterSettingChangingCallback(func() {
+		net.ReadAheadProxyEnabled = setting.GetBool(conf.ReadAheadEnabled)
+		net.ReadAheadProxyBufferMB = setting.GetInt(conf.ReadAheadBufferSize, 64)
+		net.ReadAheadProxySpeedRatio = float64(setting.GetInt(conf.ReadAheadSpeedRatio, 50)) / 100.0
+	})
 }

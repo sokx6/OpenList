@@ -1,3 +1,5 @@
+> 在OpenList的基础上稍作修改，通过动态限制用户侧的网速来避免形成对等流量
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/OpenListTeam/Logo/main/logo.svg" width="128" height="128" alt="logo" />
 
@@ -8,8 +10,9 @@
   <a href="https://github.com/OpenListTeam/OpenList/actions?query=workflow%3ABuild"><img src="https://img.shields.io/github/actions/workflow/status/OpenListTeam/OpenList/build.yml?branch=main" alt="Build status" /></a>
   <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/release/OpenListTeam/OpenList" alt="latest version" /></a>
 
-  <a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
-  <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+
 </div>
 
 ---
@@ -128,7 +131,7 @@ OpenList 是一个由 OpenList 团队独立维护的开源项目，遵循 AGPL-3
 
 ## 讨论
 
-如有一般性问题请前往 [*Discussions*](https://github.com/OpenListTeam/OpenList/discussions) 讨论区，***Issues* 仅用于错误报告和功能请求。**
+如有一般性问题请前往 [_Discussions_](https://github.com/OpenListTeam/OpenList/discussions) 讨论区，**_Issues_ 仅用于错误报告和功能请求。**
 
 ## 赞助者
 
@@ -139,7 +142,7 @@ OpenList 是一个由 OpenList 团队独立维护的开源项目，遵循 AGPL-3
 感谢以下捐赠者的慷慨支持：
 
 - [HisAtri](https://github.com/HisAtri)
-- 爱发电用户_7jTh
+- 爱发电用户\_7jTh
 - suka
 
 ## 许可证

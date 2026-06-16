@@ -1,3 +1,5 @@
+> Met kleine aanpassingen op basis van OpenList, door de netwerksnelheid aan de gebruikerszijde dynamisch te beperken om zo het ontstaan van symmetrisch peer-to-peerverkeer te voorkomen.
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/OpenListTeam/Logo/main/logo.svg" width="128" height="128" alt="logo" />
 
@@ -8,8 +10,9 @@
   <a href="https://github.com/OpenListTeam/OpenList/actions?query=workflow%3ABuild"><img src="https://img.shields.io/github/actions/workflow/status/OpenListTeam/OpenList/build.yml?branch=main" alt="Build status" /></a>
   <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/release/OpenListTeam/OpenList" alt="latest version" /></a>
 
-  <a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
-  <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+
 </div>
 
 ---
@@ -128,7 +131,7 @@ Dank u voor uw ondersteuning en begrip
 
 ## Discussie
 
-Stel algemene vragen in [*Discussions*](https://github.com/OpenListTeam/OpenList/discussions), ***Issues* zijn alleen voor bugmeldingen en feature requests.**
+Stel algemene vragen in [_Discussions_](https://github.com/OpenListTeam/OpenList/discussions), **_Issues_ zijn alleen voor bugmeldingen en feature requests.**
 
 ## Sponsoren
 
@@ -139,7 +142,7 @@ Stel algemene vragen in [*Discussions*](https://github.com/OpenListTeam/OpenList
 Dank aan de volgende donateurs voor hun steun:
 
 - [HisAtri](https://github.com/HisAtri)
-- 爱发电用户_7jTh
+- 爱发电用户\_7jTh
 - suka
 
 ## Licentie

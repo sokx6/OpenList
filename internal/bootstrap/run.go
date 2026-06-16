@@ -35,6 +35,7 @@ func Init() {
 	InitDB()
 	data.InitData()
 	InitStreamLimit()
+	InitReadAheadConfig()
 	InitIndex()
 	InitUpgradePatch()
 }

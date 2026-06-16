@@ -1,3 +1,5 @@
+> Based on OpenList with slight modifications, peer traffic is avoided by dynamically limiting the network speed on the user side.
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/OpenListTeam/Logo/main/logo.svg" width="128" height="128" alt="logo" />
 
@@ -8,8 +10,9 @@
   <a href="https://github.com/OpenListTeam/OpenList/actions?query=workflow%3ABuild"><img src="https://img.shields.io/github/actions/workflow/status/OpenListTeam/OpenList/build.yml?branch=main" alt="Build status" /></a>
   <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/release/OpenListTeam/OpenList" alt="latest version" /></a>
 
-  <a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
-  <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+
 </div>
 
 ---
@@ -81,7 +84,7 @@ Thank you for your support and understanding of the OpenList project.
   - [x] [Baidu photo](https://photo.baidu.com)
   - [x] [SMB](https://en.wikipedia.org/wiki/Server_Message_Block)
   - [x] [115](https://115.com)
-  - [X] [Cloudreve](https://cloudreve.org)
+  - [x] [Cloudreve](https://cloudreve.org)
   - [x] [Dropbox](https://www.dropbox.com)
   - [x] [FeijiPan](https://www.feijipan.com)
   - [x] [dogecloud](https://www.dogecloud.com/product/oss)
@@ -128,7 +131,7 @@ Thank you for your support and understanding of the OpenList project.
 
 ## Discussion
 
-Please refer to [*Discussions*](https://github.com/OpenListTeam/OpenList/discussions) for raising general questions, ***Issues* is for bug reports and feature requests only.**
+Please refer to [_Discussions_](https://github.com/OpenListTeam/OpenList/discussions) for raising general questions, **_Issues_ is for bug reports and feature requests only.**
 
 ## Sponsor
 
@@ -139,7 +142,7 @@ Please refer to [*Discussions*](https://github.com/OpenListTeam/OpenList/discuss
 Thanks to the following donors for their generous support:
 
 - [HisAtri](https://github.com/HisAtri)
-- 爱发电用户_7jTh
+- 爱发电用户\_7jTh
 - suka
 
 ## License
@@ -171,4 +174,3 @@ We sincerely thank the author [Xhofe](https://github.com/Xhofe) of the original 
 Thanks goes to these wonderful people:
 
 [![Contributors](https://contrib.rocks/image?repo=OpenListTeam/OpenList)](https://github.com/OpenListTeam/OpenList/graphs/contributors)
-

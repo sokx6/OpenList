@@ -63,6 +63,17 @@ func Proxy(w http.ResponseWriter, r *http.Request, link *model.Link, file model.
 	if r.Method == http.MethodHead {
 		return nil
 	}
+
+	cfg := net.LoadReadAheadConfig()
+	if cfg.Enabled {
+		reader := net.NewReadAheadProxyReader(r.Context(), res.Body, cfg)
+		if reader != nil {
+			defer reader.Close()
+			_, err = utils.CopyWithBuffer(w, reader)
+			return err
+		}
+	}
+
 	_, err = utils.CopyWithBuffer(w, &stream.RateLimitReader{
 		Reader:  res.Body,
 		Limiter: stream.ServerDownloadLimit,

@@ -1,3 +1,5 @@
+> OpenListをベースに若干の修正を加え、ユーザー側のネットワーク速度を動的に制限することで、対等トラフィックの形成を回避する
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/OpenListTeam/Logo/main/logo.svg" width="128" height="128" alt="logo" />
 
@@ -8,8 +10,9 @@
   <a href="https://github.com/OpenListTeam/OpenList/actions?query=workflow%3ABuild"><img src="https://img.shields.io/github/actions/workflow/status/OpenListTeam/OpenList/build.yml?branch=main" alt="Build status" /></a>
   <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/release/OpenListTeam/OpenList" alt="latest version" /></a>
 
-  <a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
-  <a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/discussions"><img src="https://img.shields.io/github/discussions/OpenListTeam/OpenList?color=%23ED8936" alt="discussions" /></a>
+<a href="https://github.com/OpenListTeam/OpenList/releases"><img src="https://img.shields.io/github/downloads/OpenListTeam/OpenList/total?color=%239F7AEA&logo=github" alt="Downloads" /></a>
+
 </div>
 
 ---
@@ -128,7 +131,7 @@ OpenListプロジェクトへのご支援とご理解をありがとうござい
 
 ## ディスカッション
 
-一般的な質問は [*Discussions*](https://github.com/OpenListTeam/OpenList/discussions) をご利用ください。***Issues* はバグ報告と機能リクエスト専用です。**
+一般的な質問は [_Discussions_](https://github.com/OpenListTeam/OpenList/discussions) をご利用ください。**_Issues_ はバグ報告と機能リクエスト専用です。**
 
 ## スポンサー
 
@@ -139,7 +142,7 @@ OpenListプロジェクトへのご支援とご理解をありがとうござい
 以下の方々の寛大なご支援に感謝いたします：
 
 - [HisAtri](https://github.com/HisAtri)
-- 爱发电用户_7jTh
+- 爱发电用户\_7jTh
 - suka
 
 ## ライセンス
