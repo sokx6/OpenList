@@ -174,12 +174,12 @@ func (r *ReadAheadUploadReader) Read(p []byte) (n int, err error) {
 
 // Close releases resources. Cancels the producer goroutine and closes
 // the original reader if not yet closed.
+// Only cancels, does not drain r.chunks. The producer's Read() is not
+// ctx-aware; if it's stuck on a hung client connection, the channel may
+// never close, and draining would block Close forever, leaking this
+// goroutine. The producer's defer close(r.chunks)/origReader.Close()
+// handles cleanup; unread buffers are collected by GC.
 func (r *ReadAheadUploadReader) Close() error {
 	r.cancel()
-	for {
-		_, ok := <-r.chunks
-		if !ok {
-			return nil
-		}
-	}
+	return nil
 }

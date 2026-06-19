@@ -225,13 +225,15 @@ func (r *ReadAheadProxyReader) Close() error {
 		r.upstream.Close()
 	}
 	r.cancel()
-	for {
-		select {
-		case <-r.chunks:
-		default:
-			return nil
-		}
+	// Drain until the background goroutine observes the cancel and closes the
+	// channel. A receive from a closed channel returns ok=false, ending the
+	// range loop. The previous `select { case <-r.chunks: default: }` form
+	// busy-spun forever once the channel was closed, because a closed-channel
+	// receive is always ready and `default` was never selected — pinning a CPU
+	// core per completed proxy request.
+	for range r.chunks {
 	}
+	return nil
 }
 
 func (r *ReadAheadProxyReader) wrapErr(err error) error {
@@ -240,77 +242,6 @@ func (r *ReadAheadProxyReader) wrapErr(err error) error {
 	}
 	return err
 }
-
-type AdaptiveRateLimitWriter struct {
-	writer     io.Writer
-	ctx        context.Context
-	cancel     context.CancelFunc
-	writeMeter *SpeedMeter
-	limiter    *rate.Limiter
-	speedRatio float64
-}
-
-func NewAdaptiveRateLimitWriter(ctx context.Context, writer io.Writer, cfg ReadAheadConfig) *AdaptiveRateLimitWriter {
-	if !cfg.Enabled || writer == nil {
-		return nil
-	}
-	speedRatio := cfg.SpeedRatio
-	if speedRatio <= 0 || speedRatio > 1 {
-		speedRatio = DefaultSpeedRatio
-	}
-	ctx, cancel := context.WithCancel(ctx)
-	w := &AdaptiveRateLimitWriter{
-		writer:     writer,
-		ctx:        ctx,
-		cancel:     cancel,
-		writeMeter: NewSpeedMeter(speedWindow, 0),
-		limiter:    rate.NewLimiter(rate.Inf, 0),
-		speedRatio: speedRatio,
-	}
-	go w.speedUpdater()
-	return w
-}
-
-func (w *AdaptiveRateLimitWriter) Write(p []byte) (n int, err error) {
-	n, err = w.writer.Write(p)
-	if n > 0 {
-		w.writeMeter.Record(int64(n))
-	}
-	return n, err
-}
-
-func (w *AdaptiveRateLimitWriter) Limiter() *rate.Limiter { return w.limiter }
-
-func (w *AdaptiveRateLimitWriter) speedUpdater() {
-	ticker := time.NewTicker(speedUpdateInterval)
-	defer ticker.Stop()
-	for {
-		select {
-		case <-ticker.C:
-			writeSpeed := w.writeMeter.Speed()
-			if writeSpeed > 0 {
-				targetRate := rate.Limit(writeSpeed * w.speedRatio)
-				burst := int(targetRate)
-				if burst < 64*1024 {
-					burst = 64 * 1024
-				}
-				if burst > int(writeSpeed*2) {
-					burst = int(writeSpeed * 2)
-				}
-				w.limiter.SetLimit(targetRate)
-				w.limiter.SetBurst(burst)
-			}
-		case <-w.ctx.Done():
-			return
-		}
-	}
-}
-
-func (w *AdaptiveRateLimitWriter) Close() error {
-	w.cancel()
-	return nil
-}
-
 var ReadAheadProxyEnabled bool
 var ReadAheadProxyBufferMB int
 var ReadAheadProxySpeedRatio float64
